@@ -1,0 +1,30 @@
+.displayImage {
+    background-color: bisque;
+    height: 250px;
+}
+
+.displayFeatures {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    height: 250px;
+    background-color: aliceblue;
+    width: 100%;
+}
+
+.features {
+    background-color: cadetblue;
+    border-radius: 2px;
+    color: aliceblue;
+    padding: 2px;
+    margin: 0 !important;
+}
+
+.displayFeatures > span {
+    margin-left: 0.5rem !important;
+}
+
+.displayIcon {
+    margin-right: 0.5rem !important;
+}
+
