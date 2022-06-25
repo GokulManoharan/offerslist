@@ -1,5 +1,4 @@
 .displayImage {
-    background-color: bisque;
     height: 250px;
 }
 
@@ -8,16 +7,30 @@
     flex-direction: column;
     font-size: 0.7rem;
     height: 250px;
-    background-color: aliceblue;
+    background-color: #4682b412;
+    border-radius: 4px;
     width: 100%;
 }
 
+.availableBadge {
+    margin-left: 5px;
+}
+
 .features {
-    background-color: cadetblue;
-    border-radius: 2px;
+    background-color: steelblue;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     color: aliceblue;
     padding: 2px;
     margin: 0 !important;
+}
+
+.inclusions {
+    padding: 2px;
+}
+
+.checkIcon {
+    color: green;
 }
 
 .displayFeatures > span {
@@ -26,5 +39,51 @@
 
 .displayIcon {
     margin-right: 0.5rem !important;
+}
+
+.euroIcon {
+    margin-left: 0.2rem !important;
+}
+
+.priceRow {
+    position: absolute;
+    bottom: 0 !IMPORTANT;
+    padding: 2px;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0 2px;
+    color: steelblue;
+}
+
+.priceDetails {
+    display: inline-flex;
+    align-items: baseline;
+    margin-right: 0.5rem;
+}
+
+.bookNowBtn {
+    background-color: black;
+    color: aliceblue;
+    cursor: pointer;
+    padding: 0.6rem;
+    border-radius: 4px;
+}
+
+.status {
+    padding: 3px;
+    color: white;
+    margin-left:3px;
+    border-radius: 4px;
+}
+
+.available {
+    background-color: green;
+}
+
+.notAvailable {
+    background-color: rgb(199, 53, 53);
 }
 
