@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Col, Row } from 'react-bootstrap'
 import { useSelector } from "react-redux";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faCar, faBagShopping, faCheck, faEuroSign, faSuitcase, faLocationArrow, faSnowflake, faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faArrowRight, faCar, faBagShopping,
+    faCheck, faEuroSign, faSuitcase, faLocationArrow, faSnowflake, faUser
+} from '@fortawesome/free-solid-svg-icons';
 import { Carousel } from 'react-responsive-carousel';
 
 import './index.css'
@@ -65,7 +68,7 @@ const Details = () => {
                             {
                                 item?.includedCharges?.length > 0 && (
                                     item.includedCharges.map(included => {
-                                        return <Col md={12}><span className='smallText'><FontAwesomeIcon icon={faCheck} size={'lg'} className="checkIcon" /> {included.title} </span></Col>
+                                        return <Col md={12} key={included.title}><span className='smallText'><FontAwesomeIcon icon={faCheck} size={'lg'} className="checkIcon" /> {included.title} </span></Col>
                                     })
                                 )
                             }
