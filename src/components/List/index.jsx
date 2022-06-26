@@ -1,27 +1,24 @@
 import React, { Fragment, useEffect } from 'react'
 import { fetchOfferList } from '../../redux/slices/offerList'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container, Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import ListItem from '../Item'
 
 const OfferList = () => {
     const dispatch = useDispatch()
-    const { data } = useSelector(state => state.offerList.list)
+    const { list: { data }, loading } = useSelector(state => state.offerList)
 
     useEffect(() => {
         dispatch(fetchOfferList())
     }, [])
 
-    useEffect(() => {
-        console.log('data', data?.offers)
-    }, [data])
-
     return (
-        <div className="mt-3 mb-3 p-4 listRow">
+        <div className="mb-3 p-4">
+            {loading && <div className='d-flex justify-content-center'><span>Loading...</span></div>}
             {
-                data?.offers.length > 0 && (
+                data?.offers?.length > 0 && (
                     <Fragment>
-                        <h6>{data.offers.length} offers</h6>
+                        <h6 className="listInfo">{data.offers.length}<span className="smallHeaderText m-1"> offers</span></h6>
                         <Row>
                             {
                                 data.offers.map(item => {

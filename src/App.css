@@ -1,3 +1,8 @@
+.App {
+  background-color: #4682b412;
+    height: 100vh;
+}
+
 .headerText {
   font-size: 0.8rem;
 }
@@ -12,4 +17,11 @@
 
 .smallText {
   font-size: 0.5rem;
+}
+
+.listInfo {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  width: 100%;
 }

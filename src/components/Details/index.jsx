@@ -8,6 +8,7 @@ import {
     faCheck, faEuroSign, faSuitcase, faLocationArrow, faSnowflake, faUser
 } from '@fortawesome/free-solid-svg-icons';
 import { Carousel } from 'react-responsive-carousel';
+import fallBackImg from '../../assets/images/fallBackImage.jpeg'
 
 import './index.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -23,14 +24,15 @@ const Details = () => {
         if (id) {
             const selectedItem = data?.offers.find(item => item.id === id)
             setItem(selectedItem)
-            if (selectedItem?.splashImages.length > 0) setImages(selectedItem.splashImages.map(image => ({ url: image.url, caption: item?.headlines?.description })))
+            if (selectedItem?.splashImages?.length > 0) setImages(selectedItem.splashImages.map(image => ({ url: image.url, caption: item?.headlines?.description })))
+            else setImages([{ url: fallBackImg, caption: 'FallbackImage'}])
         }
     }, [])
 
     const renderIcon = (name) => <FontAwesomeIcon icon={name} size={'sm'} className="displayIcon" />
 
     return (
-        <div className="m-4">
+        <div className="p-4">
             {console.log('===', item)}
             <span className="headerText">{item?.headlines?.description}
                 <span className={`smallText status ${item.status === 'available' ? 'available' : 'notAvailable'}`}>
@@ -40,18 +42,17 @@ const Details = () => {
             <Row>
                 <Col md={8} lg={8}>
                     <div className="displayImage">
-                        {/* <img src={item?.vehicleGroupInfo?.modelExample?.imageUrl} alt={item?.vehicleGroupInfo?.modelExample?.name} /> */}
                         <Carousel>
                             {images.map((image, index) => (
                                 <div key={index}>
-                                    <img src={image.url} />
+                                    <img src={image?.url} alt={image?.caption} />
                                 </div>
                             ))}
                         </Carousel>
                     </div>
                 </Col>
                 <Col md={4} lg={4}>
-                    <div className="displayFeatures position-relative">
+                    <div className="displayFeatures position-relative p-1">
                         <Row className="features generalText">
                             <Col md={6} lg={6} sm={6} xs={6}><span>{renderIcon(faSuitcase)}{item?.carGroupInfo?.baggage?.suitcases} suitcases</span></Col>
                             <Col md={6} lg={6} sm={6} xs={6}><span>{renderIcon(faBagShopping)}{item?.carGroupInfo?.baggage?.bags} bags</span></Col>
@@ -74,12 +75,6 @@ const Details = () => {
                             }
                         </Row>
                         <Row className="priceRow w-100 mb-2 p-1">
-                            {/* <Col md={6} lg={6} xs={6} sm={6} className='d-flex align-items-center'>
-                                <span className='generalText priceDetails'>
-                                    <FontAwesomeIcon icon={faEuroSign} size={'sm'} /> <span className="smallHeaderText price">{item?.prices?.basePrice?.amount.value}</span>
-                                    / day
-                                </span>
-                            </Col> */}
                             <Col md={12} lg={12} xs={12} sm={12} className="d-flex align-items-center justify-content-end m-0 p-0">
                                 <span className='generalText priceDetails'>
                                     <FontAwesomeIcon icon={faEuroSign} size={'sm'} /> <span className="smallHeaderText price">{item?.prices?.basePrice?.amount.value}</span>

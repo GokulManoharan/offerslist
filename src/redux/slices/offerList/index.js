@@ -5,7 +5,7 @@ export const fetchOfferList = createAsyncThunk('offerList', async () => {
     return await getOfferList()
 })
 
-const initialState = {
+export const initialState = {
     list: [],
     loading: false,
     error: null
