@@ -18,6 +18,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### Libraries uses
 
-react-bootstrap - CSS framework for ease of using styles during development
-react-responsive-carousel - For generating carousel of images in details page after clicking an offer from the grid
+- react-bootstrap - CSS framework for ease of using styles during development
+- react-responsive-carousel - For generating carousel of images in details page after clicking an offer from the grid
 
