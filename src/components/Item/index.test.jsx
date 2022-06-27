@@ -1,15 +1,36 @@
-import React from 'react'
-// import { rest } from 'msw'
-// import { setupServer } from 'msw/node'
-import mockOffers from '../../testHelpers/offersMockData.json'
-import { screen, render } from '../../testHelpers/utils'
-import ListItem from './index'
+import React from "react";
+import { render, waitFor } from "@testing-library/react";
+import { Provider } from "react-redux";
+import App from '../../App'
+import { createStore } from "../../redux/store";
 
-const apiUrl = "http://cdn.sixt.io/codingtask/offers.json"
+import Item from './index'
 
-test('Renders the Item component displays the name and price', async () => {
-  const { container } = render(<ListItem data={mockOffers.offerList.list.data.offers[0]} />)
+let store
+let spy
 
-  // should show 'Audi' on the screen when item component is loaded
-  // expect(await screen.queryByText(/Audi/i)).toBeInTheDocument()
-})
+beforeEach(() => {
+  store = createStore();
+  spy = jest.spyOn(store, "dispatch");
+});
+
+afterAll(() => {
+  spy.mockClear();
+});
+
+test("Renders the Item component and it should render properly with the cars list", async () => {
+  const { getAllByText } = render(
+    <Provider store={store}>
+      <App>
+        <Item />
+      </App>
+    </Provider>
+  );
+
+  await waitFor(async () => {
+    expect(spy).toBeCalledTimes(1);
+  });
+  await spy.mock.results[0].value
+  const cars = getAllByText(/day/i)
+  expect(cars.length).toBeGreaterThanOrEqual(0)
+});

@@ -14,10 +14,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Libraries uses
+### Libraries used
 
+- axios - For asynshronous server calls
 - react-bootstrap - CSS framework for ease of using styles during development
+- @fortawesome/react-fontawesome - For usage of few icons
 - react-responsive-carousel - For generating carousel of images in details page after clicking an offer from the grid
+- @testing-library/react - For unit tests
 

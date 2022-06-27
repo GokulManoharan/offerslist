@@ -33,7 +33,6 @@ const Details = () => {
 
     return (
         <div className="p-4">
-            {console.log('===', item)}
             <span className="headerText">{item?.headlines?.description}
                 <span className={`smallText status ${item.status === 'available' ? 'available' : 'notAvailable'}`}>
                     {`${item.status === 'available' ? 'Available' : 'Not available currently'}`}</span>

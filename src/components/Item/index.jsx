@@ -9,7 +9,7 @@ import './index.css'
 const ListItem = ({ data: { id, headlines: { description, shortSubline }, prices: { basePrice: { amount } }, vehicleGroupInfo: { modelExample: { imageUrl, name } } } }) => {
     const navigate = useNavigate();
     return (
-        <Col md={3} lg={3} sm={12} xs={12} className="p-1">
+        <Col md={3} lg={3} sm={6} xs={12} className="p-1">
             <Card className="offerCard" onClick={() => {
                 navigate(`/item/${id}`);
             }}>

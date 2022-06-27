@@ -2,16 +2,13 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 
 import rootReducer from './rootReducer'
 
-const store = configureStore({
-    reducer: rootReducer,
-    middleware: getDefaultMiddleware({
-      serializableCheck: false
-    }),
-    preloadedState: {},
-  })
+export const createStore = () =>
+configureStore({
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware({
+    serializableCheck: false
+  }),
+  preloadedState: {},
+})
 
-  if (process.env.NODE_ENV !== 'production' && module.hot) {
-    module.hot.accept('./rootReducer', () => store.replaceReducer(rootReducer))
-  }
-
-export default store
+export const store = createStore();

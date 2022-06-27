@@ -18,7 +18,7 @@ const OfferList = () => {
             {
                 data?.offers?.length > 0 && (
                     <Fragment>
-                        <h6 className="listInfo">{data.offers.length}<span className="smallHeaderText m-1"> offers</span></h6>
+                        <h6 className="listInfo">{data.offers.length}<span className="smallHeaderText m-1" data-testid="offers"> offers</span></h6>
                         <Row>
                             {
                                 data.offers.map(item => {

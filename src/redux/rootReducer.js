@@ -1,8 +1,7 @@
-import { combineReducers } from 'redux'
 import offerList from './slices/offerList'
 
-const rootReducer = combineReducers({
+const rootReducer = {
   offerList,
-})
+}
 
 export default rootReducer
